@@ -719,8 +719,6 @@ class SphinxRenderer:
         declarator.insert(0, target)
         if declarator_callback:
             declarator_callback(declarator)
-        # with open('out.txt', 'a') as f:
-        #         print(node.defname, file=f)
         return nodes_
 
     def get_qualification(self) -> List[str]:
@@ -2000,15 +1998,6 @@ class SphinxRenderer:
                     typ = typ[7:]
                 elements.append(typ)
                 elements.append(name)
-                # if name == "start_cfd":
-                #     with open('out.txt', 'a') as f:
-                #         if len(node.get_param())>0:
-                #             for param in node.get_param():
-                #                 for el in param.type_.content_:
-                #                     print(el.value, file=f)
-                #                     # for element in el.value.content_:
-                #                     #     print(element.value, file=f)
-                #                 print(param.defname, file=f)
                 param_list = []
                 for param in node.param:
                     self.context = cast(RenderContext, self.context)
@@ -2018,8 +2007,6 @@ class SphinxRenderer:
                 signature = "({0})".format(
                     ", ".join(param_list)
                 )
-                # with open('out.txt', 'a') as f:
-                #     print(signature, file=f)
                 elements.append(signature)
                 # elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
