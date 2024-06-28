@@ -2000,17 +2000,24 @@ class SphinxRenderer:
                     typ = typ[7:]
                 elements.append(typ)
                 elements.append(name)
-                # with open('out.txt', 'a') as f:
-                #     print(name, file=f)
-                if name == "start_cfd":
-                    with open('out.txt', 'a') as f:
-                        if len(node.get_param())>0:
-                            for param in node.get_param():
-                                for el in param.type_.content_:
-                                    print(el.value, file=f)
-                                    # for element in el.value.content_:
-                                    #     print(element.value, file=f)
-                                print(param.defname, file=f)
+                # if name == "start_cfd":
+                #     with open('out.txt', 'a') as f:
+                #         if len(node.get_param())>0:
+                #             for param in node.get_param():
+                #                 for el in param.type_.content_:
+                #                     print(el.value, file=f)
+                #                     # for element in el.value.content_:
+                #                     #     print(element.value, file=f)
+                #                 print(param.defname, file=f)
+                param_list = []
+                for param in node.param:
+                    self.context = cast(RenderContext, self.context)
+                    param = self.context.mask_factory.mask(param)
+                    param_decl = get_param_decl(param)
+                    param_list.append(param_decl)
+                with open('out.txt', 'a') as f:
+                    for param in param_list:
+                        print(param, file=f)
                 elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
