@@ -1447,8 +1447,6 @@ class definition(GeneratedsSuper):
 
 
 class argsstring(GeneratedsSuper):
-    with open('out.txt', 'w') as f:
-        print('Filename:', GeneratedsSuper, file=f)
     subclass = None
     superclass = None
     def __init__(self, valueOf_=''):
