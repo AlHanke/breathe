@@ -2000,14 +2000,15 @@ class SphinxRenderer:
                     typ = typ[7:]
                 elements.append(typ)
                 elements.append(name)
-                with open('out.txt', 'a') as f:
-                    if len(node.get_param())>0:
-                        print(node.get_param()[0].type_.content_[0].value, file=f)
-                        print(node.get_param()[0].declname, file=f)
-                        # print(node.get_param()[0].defname, file=f)
-                        # print(node.get_param()[0].array, file=f)
-                        # print(node.get_param()[0].defval, file=f)
-                        # print(node.get_param()[0].briefdescription, file=f)
+                if name == "sedpart::start_cfd":
+                    with open('out.txt', 'a') as f:
+                        if len(node.get_param())>0:
+                            print(node.get_param()[0].type_.content_[0].value, file=f)
+                            print(node.get_param()[0].declname, file=f)
+                            # print(node.get_param()[0].defname, file=f)
+                            # print(node.get_param()[0].array, file=f)
+                            # print(node.get_param()[0].defval, file=f)
+                            # print(node.get_param()[0].briefdescription, file=f)
                 elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
