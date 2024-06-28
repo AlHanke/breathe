@@ -2003,7 +2003,7 @@ class SphinxRenderer:
                 with open('out.txt', 'a') as f:
                     if len(node.get_param())>0:
                         print(node.get_param()[0].type_, file=f)
-                        print(node.get_param()[0].declname_, file=f)
+                        print(node.get_param()[0].declname, file=f)
                         print(node.get_param()[0].defname, file=f)
                         print(node.get_param()[0].array, file=f)
                         print(node.get_param()[0].defval, file=f)
