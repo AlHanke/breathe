@@ -2000,6 +2000,8 @@ class SphinxRenderer:
                     typ = typ[7:]
                 elements.append(typ)
                 elements.append(name)
+                with open('out.txt', 'a') as f:
+                    print(name, file=f)
                 if name == "sedpart::start_cfd":
                     with open('out.txt', 'a') as f:
                         if len(node.get_param())>0:
