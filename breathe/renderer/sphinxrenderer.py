@@ -2000,7 +2000,7 @@ class SphinxRenderer:
                     typ = typ[7:]
                 elements.append(typ)
                 elements.append(name)
-                elements.append(node.get_argsstring())
+                elements.append(node.get_argsstring()+"Test")
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
             return nodes
