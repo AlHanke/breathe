@@ -655,6 +655,8 @@ class SphinxRenderer:
         declarator_callback: Optional[DeclaratorCallback] = None,
         options={},
     ) -> List[Node]:
+        with open('out.txt', 'a') as f:
+            print('Filename:', node, file=f)
         if obj_type is None:
             obj_type = node.kind
         if content_callback is None:
@@ -2119,8 +2121,6 @@ class SphinxRenderer:
         names = self.get_qualification()
         names.append(node.get_name())
         name = self.join_nested_name(names)
-        with open('out.txt', 'a') as f:
-            print('Filename:', name, file=f)
         if node.definition.startswith("using "):
             # TODO: looks like Doxygen does not generate the proper XML
             #       for the template parameter list
