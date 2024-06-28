@@ -2015,9 +2015,12 @@ class SphinxRenderer:
                     param = self.context.mask_factory.mask(param)
                     param_decl = get_param_decl(param)
                     param_list.append(param_decl)
+                templatePrefix = self.create_template_prefix(node)
+                signature = "{0}{1}({2})".format(
+                    templatePrefix, get_definition_without_template_args(node), ", ".join(param_list)
+                )
                 with open('out.txt', 'a') as f:
-                    for param in param_list:
-                        print(param, file=f)
+                    print(signature, file=f)
                 elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
