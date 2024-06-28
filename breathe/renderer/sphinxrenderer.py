@@ -2006,13 +2006,10 @@ class SphinxRenderer:
                     with open('out.txt', 'a') as f:
                         if len(node.get_param())>0:
                             for param in node.get_param():
-                                for element in param.type_.content_[0].value.content_:
-                                    print(element.value, file=f)
-                                print(param.declname, file=f)
-                            # print(node.get_param()[0].defname, file=f)
-                            # print(node.get_param()[0].array, file=f)
-                            # print(node.get_param()[0].defval, file=f)
-                            # print(node.get_param()[0].briefdescription, file=f)
+                                for el in param.type_.content_:
+                                    for element in el.value.content_:
+                                        print(element.value, file=f)
+                                print(param.defname, file=f)
                 elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
