@@ -2000,7 +2000,9 @@ class SphinxRenderer:
                     typ = typ[7:]
                 elements.append(typ)
                 elements.append(name)
-                elements.append(node.get_argsstring()+"Test")
+                with open('out.txt', 'a') as f:
+                    print(node.get_param(), file=f)
+                elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
             return nodes
