@@ -1321,6 +1321,8 @@ class memberdefType(GeneratedsSuper):
             argsstring_ = ''
             for text__content_ in child_.childNodes:
                 argsstring_ += text__content_.nodeValue
+            with open('out.txt', 'a') as f:
+                print(argsstring_, file=f)
             self.argsstring = argsstring_
         elif child_.nodeType == Node.ELEMENT_NODE and \
             nodeName_ == 'name':
