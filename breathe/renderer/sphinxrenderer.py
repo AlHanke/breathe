@@ -2015,7 +2015,7 @@ class SphinxRenderer:
                     param = self.context.mask_factory.mask(param)
                     param_decl = get_param_decl(param)
                     param_list.append(param_decl)
-                signature = "({2})".format(
+                signature = "({0})".format(
                     ", ".join(param_list)
                 )
                 # with open('out.txt', 'a') as f:
