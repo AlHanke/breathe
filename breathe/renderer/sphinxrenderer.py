@@ -2007,8 +2007,9 @@ class SphinxRenderer:
                         if len(node.get_param())>0:
                             for param in node.get_param():
                                 for el in param.type_.content_:
-                                    for element in el.value.content_:
-                                        print(element.value, file=f)
+                                    print(el.value, file=f)
+                                    # for element in el.value.content_:
+                                    #     print(element.value, file=f)
                                 print(param.defname, file=f)
                 elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
