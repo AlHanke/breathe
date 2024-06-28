@@ -2005,9 +2005,10 @@ class SphinxRenderer:
                 if name == "start_cfd":
                     with open('out.txt', 'a') as f:
                         if len(node.get_param())>0:
-                            for element in node.get_param()[0].type_.content_[0].value.content_:
-                                print(element.value, file=f)
-                            print(node.get_param()[0].declname, file=f)
+                            for param in node.get_param():
+                                for element in param.type_.content_[0].value.content_:
+                                    print(element.value, file=f)
+                                print(param.declname, file=f)
                             # print(node.get_param()[0].defname, file=f)
                             # print(node.get_param()[0].array, file=f)
                             # print(node.get_param()[0].defval, file=f)
