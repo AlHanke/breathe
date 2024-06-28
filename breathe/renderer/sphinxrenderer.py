@@ -2002,7 +2002,7 @@ class SphinxRenderer:
                 elements.append(name)
                 with open('out.txt', 'a') as f:
                     if len(node.get_param())>0:
-                        print(node.get_param()[0], file=f)
+                        print(node.get_param()[0].defname, file=f)
                 elements.append(node.get_argsstring())
                 declaration = " ".join(elements)
             nodes = self.handle_declaration(node, declaration)
