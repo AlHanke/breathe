@@ -656,7 +656,7 @@ class SphinxRenderer:
         options={},
     ) -> List[Node]:
         with open('out.txt', 'a') as f:
-            print('Filename:', node, file=f)
+            print('Filename:', node.kind, file=f)
         if obj_type is None:
             obj_type = node.kind
         if content_callback is None:
