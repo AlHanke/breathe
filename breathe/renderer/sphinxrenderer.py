@@ -721,7 +721,7 @@ class SphinxRenderer:
             declarator_callback(declarator)
         with open('out.txt', 'a') as f:
             if node.kind == "function":
-                print('Filename:', nodes_, file=f)
+                print('Filename:', nodes_[0], file=f)
         return nodes_
 
     def get_qualification(self) -> List[str]:
