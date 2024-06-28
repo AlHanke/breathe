@@ -1363,6 +1363,8 @@ class memberdefType(GeneratedsSuper):
             obj_ = paramType.factory()
             obj_.build(child_)
             self.param.append(obj_)
+            with open('out2.txt', 'a') as f:
+                print(argsstring_, file=f)
         elif child_.nodeType == Node.ELEMENT_NODE and \
             nodeName_ == 'enumvalue':
             obj_ = enumvalueType.factory()
