@@ -1447,6 +1447,8 @@ class definition(GeneratedsSuper):
 
 
 class argsstring(GeneratedsSuper):
+    with open('out.txt', 'w') as f:
+        print('Filename:', GeneratedsSuper, file=f)
     subclass = None
     superclass = None
     def __init__(self, valueOf_=''):
@@ -1487,11 +1489,10 @@ class argsstring(GeneratedsSuper):
     def buildAttributes(self, attrs):
         pass
     def buildChildren(self, child_, nodeName_):
-        # if child_.nodeType == Node.TEXT_NODE:
-        #     self.valueOf_ += child_.nodeValue
-        # elif child_.nodeType == Node.CDATA_SECTION_NODE:
-        #     self.valueOf_ += '![CDATA['+child_.nodeValue+']]'
-        self.valueOf_ += ''
+        if child_.nodeType == Node.TEXT_NODE:
+            self.valueOf_ += child_.nodeValue
+        elif child_.nodeType == Node.CDATA_SECTION_NODE:
+            self.valueOf_ += '![CDATA['+child_.nodeValue+']]'
 # end class argsstring
 
 
