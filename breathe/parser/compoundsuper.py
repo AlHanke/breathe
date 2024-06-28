@@ -1487,6 +1487,7 @@ class argsstring(GeneratedsSuper):
     def buildAttributes(self, attrs):
         pass
     def buildChildren(self, child_, nodeName_):
+        print(child_)
         if child_.nodeType == Node.TEXT_NODE:
             self.valueOf_ += child_.nodeValue
         elif child_.nodeType == Node.CDATA_SECTION_NODE:
